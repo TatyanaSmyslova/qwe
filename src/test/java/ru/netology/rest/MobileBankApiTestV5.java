@@ -19,10 +19,10 @@ class MobileBankApiTestV5 {
                 .when()
                 .get("/demo/accounts")
                 // Проверки
+                // код теста
                 .then()
                 .statusCode(200)
-                .contentType(ContentType.JSON)
-                .body("every{ it.balance >= 0 }", is(true))
-        ;
+                // static import для JsonSchemaValidator.matchesJsonSchemaInClasspath
+                .body(matchesJsonSchemaInClasspath("accounts.schema.json"));
     }
 }
